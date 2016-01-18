@@ -3,13 +3,13 @@
 
 #include "base.h"
 #include <typeinfo>
-
+#include <iostream>
 namespace delegates_ns
 {
 
 	template< class ...Args >
 	class Event final 
-		: public IDelegate< void( Args... ) >
+		: public IDelegate< void ( Args... ) >
 	{
 	public:
 		using Delegate = IDelegate< void ( Args... ) >;
@@ -21,15 +21,22 @@ namespace delegates_ns
 		{ }
 		Event( const Event& other )
 		{
-			this->first_	= new _Node( *other.first_ );
-			this->last_		= this->first_->addRange( other.first_->next );
+			if( other.first_ )
+			{
+				this->first_    = new _Node( *other.first_ );
+				this->last_     = this->first_->addRange( other.first_->next );
+
+			} else {
+
+				this->last_ = this->first_ = nullptr;
+			}
 		}
 		Event( Event&& other ) 
-			: first_( other->first_ )
-			, last_( other->last_ )
+			: first_( other.first_ )
+			, last_( other.last_ )
 		{
-			other->first_	= nullptr;
-			other->last_	= nullptr;
+			other.first_= nullptr;
+			other.last_ = nullptr;
 		}
 		virtual ~Event( void )
 		{
@@ -84,10 +91,9 @@ namespace delegates_ns
 		}
 		Event&				operator=	( Event&& other )
 		{
-			if ( this == *other )
+			if ( this == &other )
 			{
 				return *this;
-
 			}
 			return *new( this ) Event( other );
 		}
