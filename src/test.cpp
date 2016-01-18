@@ -1,4 +1,7 @@
-//
-// Created by Sergey on 18.01.2016.
-//
+
+int main( )
+{
+
+	return 0;
+}
 
