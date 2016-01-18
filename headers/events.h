@@ -126,12 +126,12 @@ namespace delegates_ns
 				size_t hash = delegate.getHashKey();
 				if ( first_ )
 				{
-					_Node*	d = first_;
+					_Node*	d	= first_;
 					_Node*	pre = nullptr;
 					
 					while ( d )
 					{
-						if (hash == d->targetDelegate->getHashKey())
+						if ( hash == d->targetDelegate->getHashKey() )
 						{
 							if ( d->next )
 							{
@@ -213,7 +213,7 @@ namespace delegates_ns
 				while ( other )
 				{
 					n->next = new _Node( *other );
-					other = other->next;
+					other	= other->next;
 					if ( !other )
 					{
 						n = n->next;

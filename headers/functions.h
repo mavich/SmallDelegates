@@ -4,7 +4,7 @@
 #include "base.h"
 #include <typeinfo>
 
-namespace delegats_ns
+namespace delegates_ns
 {
 
 	template < class FType >
@@ -19,9 +19,11 @@ namespace delegats_ns
 		typedef R			( *FType )( Args... );
 
 		FunctionD( void ) = delete;
-		FunctionD( FType func ) : function( func )
+		FunctionD( FType func ) 
+			: function( func )
 		{ }
-		FunctionD( const FunctionD& other ) : function(other.function)
+		FunctionD( const FunctionD& other ) 
+			: function( other.function )
 		{ }
 		virtual ~FunctionD( void )
 		{

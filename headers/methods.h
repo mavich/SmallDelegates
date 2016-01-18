@@ -4,7 +4,7 @@
 #include "base.h"
 #include <typeinfo>
 
-namespace delegats_ns
+namespace delegates_ns
 {
 	template < class T, class FType >
 	class MethodD;
@@ -19,9 +19,13 @@ namespace delegats_ns
 
 
 		MethodD( void ) = delete;
-		MethodD( T* obj, FType func ) : object(obj), function(func)
+		MethodD( T* obj, FType func ) 
+			: object( obj )
+			, function( func )
 		{ }
-		MethodD( const MethodD& other ) : object(other.object), function(other.function)
+		MethodD( const MethodD& other ) 
+			: object( other.object )
+			, function( other.function )
 		{ }
 		virtual ~MethodD( void )
 		{
@@ -32,7 +36,9 @@ namespace delegats_ns
 
 		virtual size_t		getHashKey	( void ) const override
 		{
-			return typeid(function).hash_code() ^ ~typeid(object).hash_code() ^ (_mptr_to_int(nullptr,function) + size_t(object));
+			return 	typeid( function )	.hash_code() ^ 
+					~typeid( object )	.hash_code() ^ 
+					( _mptr_to_int ( nullptr, function ) + size_t( object ) );
 		}
 
 		virtual Delegate&	copy( void ) const override
@@ -42,7 +48,7 @@ namespace delegats_ns
 
 		virtual R			operator( ) ( Args... args ) const override
 		{
-			return (object->*function)( args... );
+			return ( object->*function )( args... );
 		}
 
 
@@ -84,7 +90,7 @@ namespace delegats_ns
 		}
 
 
-		T*					object;
+		T*				object;
 		FType			function;
 
 
@@ -92,9 +98,9 @@ namespace delegats_ns
 		size_t				_mptr_to_int( void * mark, ... ) const
 		{
 			size_t	value = 0;
-			void*	ptr = (char*)&mark + sizeof(mark);
+			void*	ptr = ( char* )&mark + sizeof( mark );
 
-			memcpy(&value, ptr, sizeof(size_t));
+			memcpy( &value, ptr, sizeof( size_t ) );
 
 			return value;
 		}
