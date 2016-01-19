@@ -151,7 +151,7 @@ Because of inheritance it can hold another events to.
 
 ## Performance
 
-For performance testing be used **for** cycle and **EMPTY** function (time in ms).
+For performance testing been used **for** cycle and **EMPTY** function (time in ms).
 
 **CPU**: Intel(R) Pentium(R) CPU  N3530 2.16GHz 4 cores.
 
