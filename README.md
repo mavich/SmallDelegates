@@ -1,7 +1,8 @@
 # SmallDelegates
+
 Small, headers only, delegates library for C++.
 
->In advance, I am apologize for my grammar.
+It faster and easier understanding ans to use than the standart STL implementation.
 
 ## Usage
 To use it, just simply header files wherever you want it, and include it:
@@ -32,7 +33,7 @@ Base interface for all delegates.
 
 ####Member functions
 * **getHashKey** - Abstruct funtion for getting hash key. Used in friend overloaded compare function.
- * > **NOTE**: The result of this function is not fit to be serialized. It uses too much parameters dependent on the build, session and a computer.
+ * **NOTE**: The result of this function is not fit to be serialized. It uses too much parameters dependent on the build, session and a computer.
  * **signature**: `virtual size_t getHashKey( void ) const = 0;`
  * **arguments**: *none*.
  * **return**: hash key.
@@ -150,9 +151,10 @@ Because of inheritance it can hold another events to.
 
 ## Performance
 
-For performance testing be used *for* cycle and **EMPTY** function (time in ms).
+For performance testing be used **for** cycle and **EMPTY** function (time in ms).
 
 **CPU**: Intel(R) Pentium(R) CPU  N3530 2.16GHz 4 cores.
+
 **System**: Windows 8.1 Pro x64.
 
 ### FunctionD vs std::function
@@ -191,7 +193,7 @@ For performance testing be used *for* cycle and **EMPTY** function (time in ms).
 
 #### VSC x64
 
->Em... Here I catch an error in VCS STL realization, so - sorry, there no comparison.
+>In the issue of an error in VCS STL realization of **_std::function_** class, there is no comparison.
 
 |       |SmDs |      |
 |-------|-----|------|
