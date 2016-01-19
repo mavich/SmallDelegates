@@ -90,8 +90,8 @@ namespace delegates_ns
 		}
 
 
-		T*				object;
-		FType			function;
+		T*				    object;
+		FType			    function;
 
 
 	private:

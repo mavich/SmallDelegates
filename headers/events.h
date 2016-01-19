@@ -3,12 +3,12 @@
 
 #include "base.h"
 #include <typeinfo>
-#include <iostream>
+
 namespace delegates_ns
 {
 
 	template< class ...Args >
-	class Event final 
+	class Event 
 		: public IDelegate< void ( Args... ) >
 	{
 	public:
